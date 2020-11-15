@@ -1,0 +1,84 @@
+<%- include("partials/header") %>
+	<div class="container">
+		<div class="jumbotron mt-2">
+  			<h1 class="display-4">All Art</h1>
+  			<p class="lead">A collection of Derek's paintings. 
+			<a class="btn btn-primary btn-lg float-right" href="/painting/new" role="button">Add new painting</a></p>
+							
+
+  			<hr class="my-4  d-none">
+  			<p class="lead  d-none">
+					<a class="btn btn-primary btn-lg view_options" id="sortByTheme" role="button">Sort by theme</a>
+
+    			<a class="btn btn-primary btn-lg view_options" id="sortByDate" role="button">Sort by date</a>
+				
+
+  			</p>
+			
+		</div>
+		
+		<div id="dates" class="container d-none">
+			<div class="row text-center align-items-center">
+			<% dates.forEach( function(catagory){ %>
+				<div class="col-md-4 col-sm-6">
+					<a href="/catagory/dates/<%= catagory %>">
+					<div class="img-thumbnail">
+						<img src="main_portait.jpg" class="img-thumbnail"/>
+						<div class="caption">
+							<h4 class="text-dark">
+							<%= catagory %>
+							</h4>
+						</div>
+					</div>
+					</a>
+				</div>
+			<% }) %>
+			</div>
+		
+		</div>
+		
+		<div id="themes" class="container">
+		<div class="row text-center align-items-center">
+        <% themes.forEach( function(catagory){ %>
+        	<div class="col-md-4 col-sm-6 mb-1">
+				<a href="/catagory/themes/<%= catagory.theme %>">
+            	<div class="img-thumbnail">
+                	<img src="<%= catagory.image %>" class="img-thumbnail"/>
+                	<div class="caption">
+                    	<h4 class="text-dark">
+                        <%= catagory.theme %>
+                    	</h4>
+                	</div>
+            	</div>
+				</a>
+        	</div>
+        <% }) %>
+    	</div>
+		
+		</div>
+
+	</div>
+
+<script>
+var buttons = document.querySelectorAll(".view_options");
+var themes = document.getElementById('themes');
+var dates = document.getElementById('dates');
+	
+for (const button of buttons) {
+  button.addEventListener('click', function(event) {
+    console.log(this.textContent);
+	if(this.textContent == "Sort by theme"){
+		themes.classList.remove("d-none");
+		dates.classList.add("d-none");
+	}
+	if(this.textContent == "Sort by date"){
+		dates.classList.remove("d-none");
+		themes.classList.add("d-none");
+	}
+	
+  })
+}
+</script>
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,62 @@
+<%- include("partials/header") %>
+
+<div class="container">
+	<div class="jumbotron mt-2">
+  		<h1 class="display-4">Edit <%= painting.title %></h1>
+	</div>
+	
+	<div class="container">
+		
+		<div class="row">
+			
+			<div class="col md-6">
+				
+				<form action="/painting/edit/<%= painting.id %>" method="POST">
+				  <div class="form-group">
+					<label for="exampleFormControlInput1">Title</label>
+					<input class="form-control" type="text" name="title" value="<%= painting.title %>">
+				  </div>
+				  <div class="form-group">
+					<label for="exampleFormControlSelect1">Date (DD/MM/YYYY)</label>
+					<input class="form-control" type="text" name="date" value="<%= painting.date %>">
+				  </div>
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Categories (separate each catagory with a comma)</label>
+						<input class="form-control" type="text" name="catagory" data-role="tagsinput" value="<%= painting.themes %>">
+					</div>
+				  <div class="form-group">
+					<label for="exampleFormControlTextarea1">Description</label>
+					<textarea class="form-control" name="description" rows="3"><%= painting.description %></textarea>
+				  </div>
+
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary float-right">Save</button>
+					</div>
+				</form>
+				
+			</div>
+			
+			<div class="col md-6">
+				
+				<div class="thumbnail">
+				<img src="/<%= painting.image %>" class="img-thumbnail">
+
+			</div>
+				
+			</div>
+			
+		</div>
+		
+
+
+	
+		
+	
+	
+	</div>
+	
+</div>
+
+
+
+<%- include("partials/footer") %>

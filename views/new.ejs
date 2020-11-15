@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<div class="container">
+	<div class="jumbotron mt-2">
+  		<h1 class="display-4">Add a new painting</h1>
+	</div>
+
+	<form action="/painting/new" method="POST" enctype="multipart/form-data">
+	  <div class="form-group">
+		<label for="exampleFormControlInput1">Title</label>
+		<input class="form-control" type="text" name="title" placeholder="Title of painting">
+	  </div>
+	  <div class="form-group">
+		<label for="exampleFormControlSelect1">Date (DD/MM/YYYY)</label>
+		<input class="form-control" type="text" name="date" placeholder="Date painting was made">
+	  </div>
+		<div class="form-group">
+			<label for="exampleFormControlSelect1">Categories (separate each catagory with a comma)</label>
+			<input class="form-control" type="text" name="catagory" placeholder="Abstract, Portrait, Dolphin" data-role="tagsinput">
+	  </div>
+	  <div class="form-group">
+		<label for="exampleFormControlTextarea1">Description</label>
+		<textarea class="form-control" name="description" placeholder="Write a short description of the painting" rows="3"></textarea>
+	  </div>
+
+		<div class="form-group">
+		<label for="exampleFormControlFile1">File for the painting</label>
+		<input type="file" class="form-control-file"  name="avatar" id="exampleFormControlFile1">
+	  </div>
+		<div class="form-group">
+      		<button type="submit" class="btn btn-primary float-right">Submit</button>
+		</div>
+	</form>
+	
+</div>
+
+
+
+
+<%- include("partials/footer") %>
