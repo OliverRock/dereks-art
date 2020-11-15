@@ -1,0 +1,42 @@
+<%- include("partials/header") %>
+
+<div class="container mt-4">
+	<div class="row">
+		<div class="col-md-3">
+			<h2 class="lead">
+				<strong>
+				<%= painting.title %>
+				</strong>
+			</h2>
+			<p>
+				<b>Date: </b><%= painting.date %>
+			</p>
+			<p>
+				<b>Themes: </b><%= painting.themes %>
+			</p>
+			<p>
+				<b>Description: </b><%= painting.description %>
+			</p>
+			<div class="">
+					<a class="btn btn-primary btn-md" href="/catagories" role="button">Back to all art</a>
+					<a class="btn btn-primary btn-md float-right" href="/painting/edit/<%= painting.id %>" role="button">Edit info</a>
+			
+			</div>
+			
+		</div>
+		
+		<div class="col-md-9">
+			<div class="thumbnail">
+				<img src="/<%= painting.image %>" class="img-thumbnail">
+
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+<%- include("partials/footer") %>

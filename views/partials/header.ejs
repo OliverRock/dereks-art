@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Derek Cousins</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+		<nav class="navbar navbar-light bg-light justify-content-between">
+  			<a class="navbar-brand"href="/">Home </a>
+			
+			<div class="d-flex flex-row-reverse">
+				<% if(!currentUser){ %>
+					<a class="navbar-brand float-right" href="/login">Login</a>
+					<a class="navbar-brand float-right" href="/register">Signup</a>
+				<% } else { %>
+					<a class="navbar-brand float-right" href="/logout">Logout</a>
+					<a class="navbar-brand float-right">Signed In As <%= currentUser.username %></a>
+
+				<% } %>
+			</div>
+  			
+		</nav>
+
