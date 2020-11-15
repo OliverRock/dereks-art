@@ -1,0 +1,10 @@
+command to start app and connect to logs:
+forever start -o out.log -e err.log app.js
+
+
+command to start mongo:
+./mongod
+
+
+Check for process using ports:
+netstat -tulpn
