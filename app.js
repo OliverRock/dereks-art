@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== "production"){
+	require('dotenv').config()
+}
+
 const 	express = require("express"),
 	  	app 	= express(),
 	  	bodyParser = require('body-parser'),
@@ -10,12 +14,16 @@ const 	express = require("express"),
 	  	User = require('./models/user'),
 	  	passport = require('passport'),
 		LocalStrategy = require('passport-local'),
-		passportLocalMongoose = require('passport-local-mongoose');
+		passportLocalMongoose = require('passport-local-mongoose'),
+	  	cloudinary = require('cloudinary').v2,
+		{ CloudinaryStorage } = require('multer-storage-cloudinary');;
 
+const dbUrl = process.env.DB_URL
+// const dbUrl = "mongodb://localhost:27017/dereks_site"
 
 // Clean and setup database
 seedDB();
-mongoose.connect("mongodb://localhost:27017/dereks_site", {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -28,7 +36,21 @@ app.set('view engine', 'ejs');
 // =============
 
 // Set  up multer to read and save files uploads on the site
-var storage = multer.diskStorage({
+cloudinary.config({
+	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+	api_key: process.env.CLOUDINARY_KEY,
+	api_secret: process.env.COULDINARY_SECRET
+})
+
+const storage = new CloudinaryStorage({
+	cloudinary,
+	params: {
+		folder: 'Derek',
+		allowedFormats: ['jpeg', 'png', 'jpg'],
+	}
+})
+
+var storageDisk = multer.diskStorage({
   destination: 'public/',
   filename: function (req, file, cb) {
     crypto.pseudoRandomBytes(16, function (err, raw) {
@@ -137,7 +159,7 @@ app.post('/painting/new', upload.single('avatar'), function (req, res, next) {
 		date: req.body.date,
 		themes: makeCatagoryList(req.body.catagory),
 		description: req.body.description,
-		image: req.file.filename
+		image: req.file.path
 	}
 	
 	Painting.create(newPainting, function(err, newlyCreated){
@@ -226,8 +248,6 @@ function getUniqueThemes(allThemes){
 				}
 		})
 	})
-	
-	console.log(results)
 	return results;
 
 }
