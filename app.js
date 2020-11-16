@@ -332,8 +332,9 @@ function isLoggedIn(req, res, next){
 	res.redirect('/login')
 }
 
+const port = process.env.PORT || 3000
 
 // Run server
-app.listen(3000, function(){
+app.listen(port, function(){
 	console.log("Server is running!!")
 });
