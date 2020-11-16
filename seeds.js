@@ -5,7 +5,7 @@ const 	mongoose 	= require("mongoose"),
 const paintings = [
 	{
 		title: "Elephant dreams",
-		image: "elephantflowers.jpg",
+		image: "https://res.cloudinary.com/dmvu4maqq/image/upload/v1605476779/elephantflowers_gsvtwi.jpg",
 		id: 1,
 		description: "A painting that shows the dreams and desires of an elephant.",
 		date: "01/04/1980",
@@ -13,7 +13,7 @@ const paintings = [
 	},
 	{
 		title: "Wandjina",
-		image: "Wandjina.jpg",
+		image: "https://res.cloudinary.com/dmvu4maqq/image/upload/v1605476779/ks-larinyuwar-large_dt2ga5.jpg",
 		id: 2,
 		description: "The colours of a rainbow.",
 		date: "01/04/1980",
@@ -22,7 +22,7 @@ const paintings = [
 	},
 	{
 		title: "Benin skull",
-		image: "benin.jpg",
+		image: "https://res.cloudinary.com/dmvu4maqq/image/upload/v1605476780/benin_dalcb6.jpg",
 		id: 3,
 		date: "01/04/1980",
 		description: "A skull amde from ivory",
@@ -31,7 +31,7 @@ const paintings = [
 	},
 		{
 		title: "Tortoise dreams",
-		image: "hunters.jpg",
+		image: "https://res.cloudinary.com/dmvu4maqq/image/upload/v1605476793/bolivia_oo2imp.jpg",
 		id: 4,
 		date: "01/04/1980",
 		description: "Chasing big cats on horses.",
@@ -39,7 +39,7 @@ const paintings = [
 
 	},{
 		title: "Wandjina 2",
-		image: "ks-larinyuwar-large.jpg",
+		image: "https://res.cloudinary.com/dmvu4maqq/image/upload/v1605476782/Wandjina_q0isfc.jpg",
 		id: 5,
 		date: "01/04/1980",
 		description: "The colours of a rainbow.",
@@ -48,7 +48,7 @@ const paintings = [
 	},
 	{
 		title: "Eukaryotic dreams",
-		image: "main_portait.jpg",
+		image: "https://res.cloudinary.com/dmvu4maqq/image/upload/v1605476782/main_portait_hrqkrx.jpg",
 		id: 6,
 		date: "01/04/1980",
 		description: "An indian wedding.",
@@ -56,7 +56,7 @@ const paintings = [
 	},
 	{
 		title: "Pregnant huntress",
-		image: "namib.jpg",
+		image: "https://res.cloudinary.com/dmvu4maqq/image/upload/v1605476782/namib_ogc673.jpg",
 		id: 7,
 		date: "01/04/1980",
 		description: "The pregnant huntress of the Namib",
