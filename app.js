@@ -23,7 +23,7 @@ const dbUrl = process.env.DB_URL
 // const dbUrl = "mongodb://localhost:27017/dereks_site"
 
 // Clean and setup database
-seedDB();
+//seedDB();
 mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
