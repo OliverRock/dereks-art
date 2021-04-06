@@ -17,7 +17,9 @@ const 	express = require("express"),
 		LocalStrategy = require('passport-local'),
 		passportLocalMongoose = require('passport-local-mongoose'),
 	  	cloudinary = require('cloudinary').v2,
-		{ CloudinaryStorage } = require('multer-storage-cloudinary');;
+		{ CloudinaryStorage } = require('multer-storage-cloudinary');
+
+//const authRoutes = require('./routes/auth');
 
 const dbUrl = process.env.DB_URL
 // const dbUrl = "mongodb://localhost:27017/dereks_site"
@@ -331,6 +333,7 @@ function isLoggedIn(req, res, next){
 	}
 	res.redirect('/login')
 }
+
 
 const port = process.env.PORT || 3000
 
