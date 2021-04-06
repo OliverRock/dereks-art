@@ -104,7 +104,6 @@ app.get("/", function(req, res){
 	console.log("user connected")
 	res.render("landing");
 	console.error("A user connected")
-
 })
 
 
